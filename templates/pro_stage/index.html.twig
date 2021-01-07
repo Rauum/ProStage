@@ -1,8 +1,117 @@
 {% extends 'base.html.twig' %}
 
- {% block contenu %}
- 
- <center><h1>Cette page est la page d'acceuil</h1></center>
- 
- {% endblock %}
+{% block titre %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
 
+<div class="col-md-12">
+  <h3 class="text-center text-info">
+    Page d'acceuil ProStage
+  </h3>
+</div>
+			</nav>
+		</div>
+
+{% endblock %}
+
+{% block tableau %}
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>
+            <center>Stages</center>
+          </th>
+          <th>
+            <center>Entreprises</center>
+          </th>
+          <th>
+            <center>Formations</center>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active">
+          <td>
+              <center>Stage 1</center>
+          </td>
+          <td>
+              <center>Entreprise 2</center>
+          </td>
+          <td>
+            <center>Formation 1</center>
+          </td>
+        </tr>
+        <tr class="table-active">
+          <td>
+              <center>Stage 2</center>
+          </td>
+          <td>
+              <center>Entreprise 2</center>
+          </td>
+          <td>
+              <center>Formation 2</center>
+          </td>
+        </tr>
+        <tr class="table-active">
+          <td>
+              <center>Stage 3</center>
+          </td>
+          <td>
+              <center>Entreprise 2</center>
+          </td>
+          <td>
+              <center>Formation 3</center>
+          </td>
+        </tr>
+        <tr class="table-active">
+          <td>
+              <center>Stage 4</center>
+          </td>
+          <td>
+              <center>Entreprise 3</center>
+          </td>
+          <td>
+              <center>Formation 1</center>
+          </td>
+        </tr>
+        <tr class="table-active">
+          <td>
+              <center>Stage 5</center>
+          </td>
+          <td>
+              <center>Entreprise 1</center>
+          </td>
+          <td>
+              <center>Formation 1</center>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block boutons %}
+<div class="row">
+  <div class="col-md-6">
+    <center>
+    <button type="button" class="btn btn-secondary btn-lg btn-block active">
+    <a href="formations">
+      Filtrer par formations
+    </a>
+    </button>
+    </center>
+  </div>
+  <div class="col-md-6">
+    <center>
+    <button type="button" class="btn btn-secondary btn-lg btn-block">
+      Filtrer par entreprises
+    </button>
+    </center>
+  </div>
+</div>
+{% endblock %}

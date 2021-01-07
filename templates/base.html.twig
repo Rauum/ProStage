@@ -15,24 +15,20 @@
 
     </head>
     <body>
+        <div class="container-fluid">
+        <!-- BLOC TITRE -->
+        {% block titre %}
 
-        <!-- BLOC DU SLIDER -->
-        {% block slider %}
-        <h1>-------------- SLIDER -------------- </h1>
         {% endblock %}
 
-        <!-- BLOC DU MENU -->
-        {% block menu %}
-        <h1>-------------- MENU -------------- <i class="icon-user"></i></h1>
+        <!-- BLOC DU TABLEAU -->
+        {% block tableau %}
+
         {% endblock %}
 
-        <!-- BLOC DU CONTENU DE LA PAGE -->
-        {% block contenu %}
-        {% endblock %}
-
-        <!-- PIED DE PAGE -->
-        {% block footer %}
-        <h1>-------------- FOOTER -------------- </h1>
+        <!-- BLOC DES BOUTONS -->
+        {% block boutons %}
+        
         {% endblock %}
 
         <!-- BLOC JAVASCRIPTS -->
@@ -41,5 +37,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="{{asset('/js/bootstrap.min.js')}}"></script>
         {% endblock %}
+        </div>
     </body>
 </html>
