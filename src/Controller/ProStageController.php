@@ -13,9 +13,9 @@ class ProStageController extends AbstractController
         return $this->render('pro_stage/index.html.twig');
     }
 
-    public function entreprise(): Response
+    public function entreprises(): Response
     {
-        return $this->render('pro_stage/entreprise.html.twig');
+        return $this->render('pro_stage/entreprises.html.twig');
     }
 
     public function formations(): Response
@@ -23,9 +23,9 @@ class ProStageController extends AbstractController
         return $this->render('pro_stage/formations.html.twig');
     }
 
-    public function stages($id): Response
+    public function stage($id): Response
     {
-        return $this->render('pro_stage/stages.html.twig',
+        return $this->render('pro_stage/stage.html.twig',
         ['id' => $id]);
     }
 }

@@ -36,7 +36,7 @@
       <tbody>
         <tr class="table-active">
           <td>
-              <center>Stage 1</center>
+              <a href="{{path('pro_stage_stage',{id:1})}}"><center>Stage 1</center></a>
           </td>
           <td>
               <center>Entreprise 2</center>
@@ -47,7 +47,7 @@
         </tr>
         <tr class="table-active">
           <td>
-              <center>Stage 2</center>
+              <a href="{{path('pro_stage_stage',{id:2})}}"><center>Stage 2</center></a>
           </td>
           <td>
               <center>Entreprise 2</center>
@@ -58,7 +58,7 @@
         </tr>
         <tr class="table-active">
           <td>
-              <center>Stage 3</center>
+              <a href="{{path('pro_stage_stage',{id:3})}}"><center>Stage 3</center></a>
           </td>
           <td>
               <center>Entreprise 2</center>
@@ -69,7 +69,7 @@
         </tr>
         <tr class="table-active">
           <td>
-              <center>Stage 4</center>
+              <a href="{{path('pro_stage_stage',{id:4})}}"><center>Stage 4</center></a>
           </td>
           <td>
               <center>Entreprise 3</center>
@@ -80,7 +80,7 @@
         </tr>
         <tr class="table-active">
           <td>
-              <center>Stage 5</center>
+              <a href="{{path('pro_stage_stage',{id:5})}}"><center>Stage 5</center></a>
           </td>
           <td>
               <center>Entreprise 1</center>
@@ -99,18 +99,20 @@
 <div class="row">
   <div class="col-md-6">
     <center>
+		<a href="{{path('pro_stage_formations')}}">
     <button type="button" class="btn btn-secondary btn-lg btn-block active">
-    <a href="formations">
       Filtrer par formations
-    </a>
     </button>
+		</a>
     </center>
   </div>
   <div class="col-md-6">
     <center>
+		<a href="{{path('pro_stage_entreprises')}}">
     <button type="button" class="btn btn-secondary btn-lg btn-block">
       Filtrer par entreprises
     </button>
+		</a>
     </center>
   </div>
 </div>
