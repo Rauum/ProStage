@@ -26,23 +26,15 @@
           </th>
         </tr>
       </thead>
+			{% for formationCourante in formations %}
       <tbody>
         <tr class="table-active">
           <td>
-            <center>Formation 1</center>
-          </td>
-        </tr>
-        <tr class="table-active">
-          <td>
-              <center>Formation 2</center>
-          </td>
-        </tr>
-        <tr class="table-active">
-          <td>
-              <center>Formation 3</center>
+            <center>{{formationCourante.intitule}}</center>
           </td>
         </tr>
       </tbody>
+			{% endfor %}
     </table>
   </div>
 </div>
@@ -54,6 +46,7 @@
   <a href="{{path('pro_stage_acceuil')}}">
     <button type="button" class="btn btn-secondary btn-lg btn-block">
       Retour
+		</button>
 		</a>
     </div>
 </div>

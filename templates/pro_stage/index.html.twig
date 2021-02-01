@@ -34,61 +34,21 @@
         </tr>
       </thead>
       <tbody>
+				{% for stageCourant in stages %}
         <tr class="table-active">
           <td>
-              <a href="{{path('pro_stage_stage',{id:1})}}"><center>Stage 1</center></a>
+              <a href="{{path('pro_stage_stage',{id:stageCourant.id})}}"><center>{{stageCourant.intitule}}</center></a>
           </td>
           <td>
-              <center>Entreprise 2</center>
+              <center>{{stageCourant.entreprise.nom}}</center>
           </td>
           <td>
-            <center>Formation 1</center>
+						{% for formation in stageCourant.formation %}
+            <center>{{formation.intitule}}</center>
+						{% endfor %}
           </td>
         </tr>
-        <tr class="table-active">
-          <td>
-              <a href="{{path('pro_stage_stage',{id:2})}}"><center>Stage 2</center></a>
-          </td>
-          <td>
-              <center>Entreprise 2</center>
-          </td>
-          <td>
-              <center>Formation 2</center>
-          </td>
-        </tr>
-        <tr class="table-active">
-          <td>
-              <a href="{{path('pro_stage_stage',{id:3})}}"><center>Stage 3</center></a>
-          </td>
-          <td>
-              <center>Entreprise 2</center>
-          </td>
-          <td>
-              <center>Formation 3</center>
-          </td>
-        </tr>
-        <tr class="table-active">
-          <td>
-              <a href="{{path('pro_stage_stage',{id:4})}}"><center>Stage 4</center></a>
-          </td>
-          <td>
-              <center>Entreprise 3</center>
-          </td>
-          <td>
-              <center>Formation 1</center>
-          </td>
-        </tr>
-        <tr class="table-active">
-          <td>
-              <a href="{{path('pro_stage_stage',{id:5})}}"><center>Stage 5</center></a>
-          </td>
-          <td>
-              <center>Entreprise 1</center>
-          </td>
-          <td>
-              <center>Formation 1</center>
-          </td>
-        </tr>
+				{% endfor %}
       </tbody>
     </table>
   </div>

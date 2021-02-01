@@ -6,55 +6,48 @@
 		<div class="col-md-12">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
 
-<div class="col-md-12">
-  <h3 class="text-center text-info">
-    Filtre par entreprises
-  </h3>
-</div>
+				<div class="col-md-12">
+					<h3 class="text-center text-info">
+						Filtre par entreprises
+					</h3>
+				</div>
 			</nav>
 		</div>
-{% endblock %}
+		{% endblock %}
 
-{% block tableau %}
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-hover table-bordered">
-      <thead>
-        <tr>
-          <th>
-            <center>Formations</center>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="table-active">
-          <td>
-            <center>Entreprise 1</center>
-          </td>
-        </tr>
-        <tr class="table-active">
-          <td>
-              <center>Entreprise 2</center>
-          </td>
-        </tr>
-        <tr class="table-active">
-          <td>
-              <center>Entreprise 3</center>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-{% endblock %}
+		{% block tableau %}
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>
+								<center>Entreprise</center>
+							</th>
+						</tr>
+					</thead>
+						{% for entrepriseCourante in entreprises %}
+					<tbody>
+						<tr class="table-active">
+							<td>
+								<center>{{entrepriseCourante.nom}}</center>
+							</td>
+						</tr>
+					</tbody>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+		{% endblock %}
 
-{% block boutons %}
-<div class="row">
-  <div class="col-md-6">
-    <a href="{{path('pro_stage_acceuil')}}">
-      <button type="button" class="btn btn-secondary btn-lg btn-block">
-        Retour
+		{% block boutons %}
+		<div class="row">
+			<div class="col-md-6">
+				<a href="{{path('pro_stage_acceuil')}}">
+					<button type="button" class="btn btn-secondary btn-lg btn-block">
+						Retour
+					</button>
 				</a>
-      </div>
-</div>
-{% endblock %}
+			</div>
+		</div>
+		{% endblock %}
