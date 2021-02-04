@@ -6,48 +6,48 @@
 		<div class="col-md-12">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
 
-<div class="col-md-12">
-  <h3 class="text-center text-info">
-    Filtre par formations
-  </h3>
-</div>
+				<div class="col-md-12">
+					<h3 class="text-center text-info">
+						Filtre par formations
+					</h3>
+				</div>
 			</nav>
 		</div>
-{% endblock %}
+		{% endblock %}
 
-{% block tableau %}
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-hover table-bordered">
-      <thead>
-        <tr>
-          <th>
-            <center>Formations</center>
-          </th>
-        </tr>
-      </thead>
-			{% for formationCourante in formations %}
-      <tbody>
-        <tr class="table-active">
-          <td>
-            <center>{{formationCourante.intitule}}</center>
-          </td>
-        </tr>
-      </tbody>
-			{% endfor %}
-    </table>
-  </div>
-</div>
-{% endblock %}
+		{% block tableau %}
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>
+								<center>Formations</center>
+							</th>
+						</tr>
+					</thead>
+					{% for formationCourante in formations %}
+					<tbody>
+						<tr class="table-active">
+							<td>
+								<center>{{formationCourante.intitule}}</center>
+							</td>
+						</tr>
+					</tbody>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+		{% endblock %}
 
-{% block boutons %}
-<div class="row">
-  <div class="col-md-6">
-  <a href="{{path('pro_stage_acceuil')}}">
-    <button type="button" class="btn btn-secondary btn-lg btn-block">
-      Retour
-		</button>
-		</a>
-    </div>
-</div>
-{% endblock %}
+		{% block boutons %}
+		<div class="row">
+			<div class="col-md-6">
+				<a href="{{path('pro_stage_acceuil')}}">
+					<button type="button" class="btn btn-secondary btn-lg btn-block">
+						Retour
+					</button>
+				</a>
+			</div>
+		</div>
+		{% endblock %}

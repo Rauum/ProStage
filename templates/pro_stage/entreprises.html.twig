@@ -26,15 +26,15 @@
 							</th>
 						</tr>
 					</thead>
-						{% for entrepriseCourante in entreprises %}
 					<tbody>
+						{% for entrepriseCourante in entreprises %}
 						<tr class="table-active">
 							<td>
-								<center>{{entrepriseCourante.nom}}</center>
+								<a href="{{path('pro_stage_entreprise',{id:entrepriseCourante.id})}}"><center>{{entrepriseCourante.nom}}</center></a>
 							</td>
 						</tr>
+						{% endfor %}
 					</tbody>
-					{% endfor %}
 				</table>
 			</div>
 		</div>

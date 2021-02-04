@@ -8,15 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Stage;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
+use App\Repository\StageRepository;
+use App\Repository\FormationRepository;
+use App\Repository\EntrepriseRepository;
 
 class ProStageController extends AbstractController
 {
-  public function index(): Response
+  public function index(StageRepository $repositoryStage): Response
   {
-
-    //Recuperer le repository de l'entité stage
-    $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
-
     //Recuperer les ressources enregistrées en BD
     $stages = $repositoryStage->findAll();
 
@@ -25,37 +24,36 @@ class ProStageController extends AbstractController
 
   }
 
-  public function entreprises(): Response
+  public function entreprises(EntrepriseRepository $repositoryEntreprise): Response
   {
-    //Recuperer le repository de l'entité stage
-    $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
-
     //Recuperer les ressources enregistrées en BD
     $entreprises = $repositoryEntreprise->findAll();
 
     return $this->render('pro_stage/entreprises.html.twig', ['entreprises'=>$entreprises]);
   }
 
-  public function formations(): Response
+  public function formations(FormationRepository $repositoryFormation): Response
   {
-    //Recuperer le repository de l'entité stage
-    $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
-
     //Recuperer les ressources enregistrées en BD
     $formations = $repositoryFormation->findAll();
 
     return $this->render('pro_stage/formations.html.twig', ['formations'=>$formations]);
   }
 
-  public function stage($id): Response
+  public function stage(Stage $stage): Response
   {
-    //Recuperer le repository de l'entité stage
+    return $this->render('pro_stage/stage.html.twig', ['stage' => $stage]);
+  }
+
+  public function entreprise($id): Response
+  {
+    // Récupérer le repository de l'entité Ressource
     $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
 
-    //Recuperer les ressources enregistrées en BD
-    $stage = $repositoryStage->find($id);
+    // Récupérer les ressources enregistrées en BD
+    $entreprise = $repositoryStage->find($id);
 
-    return $this->render('pro_stage/stage.html.twig',
-    ['stage' => $stage]);
+    // Envoyer la ressource récupérée à la vue chargée de l'afficher
+    return $this->render('pro_stage/entreprise.html.twig', ['entreprise' => $entreprise]);
   }
 }
