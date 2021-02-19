@@ -45,15 +45,15 @@ class ProStageController extends AbstractController
     return $this->render('pro_stage/stage.html.twig', ['stage' => $stage]);
   }
 
-  public function entreprise($id): Response
-  {
-    // Récupérer le repository de l'entité Ressource
-    $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+  public function afficherStagesParEntreprises($id)
+    {
+        // Récupérer le repository de l'entité Ressource
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
 
-    // Récupérer les ressources enregistrées en BD
-    $entreprise = $repositoryStage->find($id);
+        // Récupérer les ressources enregistrées en BD
+        $stage = $repositoryStage->findBy(array("entreprise"=>$id));
 
-    // Envoyer la ressource récupérée à la vue chargée de l'afficher
-    return $this->render('pro_stage/entreprise.html.twig', ['entreprise' => $entreprise]);
-  }
+        // Envoyer la ressource récupérée à la vue chargée de l'afficher
+        return $this->render('pro_stage/afficherStagesParEntreprises.html.twig', ['stage' => $stage]);
+    }
 }

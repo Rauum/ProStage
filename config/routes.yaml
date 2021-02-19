@@ -14,6 +14,6 @@ pro_stage_stage:
     path: /pro/stage/stage/{id}
     controller: App\Controller\ProStageController::stage
 
-pro_stage_entreprise:
-    path: /pro/stage/entreprise/{id}
-    controller: App\Controller\ProStageController::entreprise
+pro_stage_afficherStagesParEntreprises:
+    path: /pro/stage/afficherStagesParEntreprises/{id}
+    controller: App\Controller\ProStageController::afficherStagesParEntreprises

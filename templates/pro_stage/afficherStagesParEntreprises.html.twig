@@ -27,12 +27,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						{% for entrepriseCourante in entreprises %}
+						{% for stageCourant in stage %}
+
 						<tr class="table-active">
 							<td>
-									<a href="{{path('pro_stage_afficherStagesParEntreprises',{id:entrepriseCourante.id})}}"><center>{{entrepriseCourante.nom}}</center></a>
+    							<center>{{stageCourant.intitule}}</center>
 							</td>
 						</tr>
+
 						{% endfor %}
 					</tbody>
 				</table>
@@ -43,7 +45,7 @@
 		{% block boutons %}
 		<div class="row">
 			<div class="col-md-6">
-				<a href="{{path('pro_stage_acceuil')}}">
+				<a href="{{path('pro_stage_entreprises')}}">
 					<button type="button" class="btn btn-secondary btn-lg btn-block">
 						Retour
 					</button>
