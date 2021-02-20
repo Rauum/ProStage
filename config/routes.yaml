@@ -17,3 +17,7 @@ pro_stage_stage:
 pro_stage_afficherStagesParEntreprises:
     path: /pro/stage/afficherStagesParEntreprises/{id}
     controller: App\Controller\ProStageController::afficherStagesParEntreprises
+
+pro_stage_afficherStagesParFormations:
+    path: /pro/stage/afficherStagesParFormations/{id}
+    controller: App\Controller\ProStageController::afficherStagesParFormations

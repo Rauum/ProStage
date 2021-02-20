@@ -56,4 +56,17 @@ class ProStageController extends AbstractController
         // Envoyer la ressource récupérée à la vue chargée de l'afficher
         return $this->render('pro_stage/afficherStagesParEntreprises.html.twig', ['stage' => $stage]);
     }
+
+    public function afficherStagesParFormations($id)
+      {
+          // Récupérer le repository de l'entité Ressource
+          $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+
+          // Récupérer les ressources enregistrées en BD
+          $formation=$repositoryFormation->find($id);
+          $stage=$formation->getStages();
+
+          // Envoyer la ressource récupérée à la vue chargée de l'afficher
+          return $this->render('pro_stage/afficherStagesParFormations.html.twig', ['stage' => $stage]);
+      }
 }
