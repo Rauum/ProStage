@@ -17,7 +17,7 @@ class ProStageController extends AbstractController
   public function index(StageRepository $repositoryStage): Response
   {
     //Recuperer les ressources enregistrées en BD
-    $stages = $repositoryStage->findAll();
+    $stages = $repositoryStage->findByPageAcceuil();
 
     //Envoyer les ressources récupérées à la vue chargée de les afficher
     return $this->render('pro_stage/index.html.twig', ['stages'=>$stages]);
@@ -45,28 +45,24 @@ class ProStageController extends AbstractController
     return $this->render('pro_stage/stage.html.twig', ['stage' => $stage]);
   }
 
-  public function afficherStagesParEntreprises($id)
-    {
-        // Récupérer le repository de l'entité Ressource
-        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+  public function  afficherStagesParEntreprises(StageRepository $repositoryStage, $nom)
+  {
+    //Recuperer les ressources enregistrées en BD
+    $stages = $repositoryStage->findByNomEntreprise($nom);
 
-        // Récupérer les ressources enregistrées en BD
-        $stage = $repositoryStage->findBy(array("entreprise"=>$id));
+    //Envoyer les ressources récupérées à la vue chargée de les afficher
+    return $this->render('pro_stage/afficherStagesParEntreprises.html.twig', ['stages'=>$stages]);
 
-        // Envoyer la ressource récupérée à la vue chargée de l'afficher
-        return $this->render('pro_stage/afficherStagesParEntreprises.html.twig', ['stage' => $stage]);
-    }
+  }
 
-    public function afficherStagesParFormations($id)
-      {
-          // Récupérer le repository de l'entité Ressource
-          $repositoryFormation = $this->getDoctrine()->getRepository(Formation::class);
+  public function  afficherStagesParFormations(StageRepository $repositoryStage, $intitule)
+  {
+    //Recuperer les ressources enregistrées en BD
+    $stages = $repositoryStage->findByNomFormation($intitule);
 
-          // Récupérer les ressources enregistrées en BD
-          $formation=$repositoryFormation->find($id);
-          $stage=$formation->getStages();
+    //Envoyer les ressources récupérées à la vue chargée de les afficher
+    return $this->render('pro_stage/afficherStagesParEntreprises.html.twig', ['stages'=>$stages]);
 
-          // Envoyer la ressource récupérée à la vue chargée de l'afficher
-          return $this->render('pro_stage/afficherStagesParFormations.html.twig', ['stage' => $stage]);
-      }
+  }
+
 }

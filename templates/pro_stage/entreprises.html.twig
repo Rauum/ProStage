@@ -30,7 +30,7 @@
 						{% for entrepriseCourante in entreprises %}
 						<tr class="table-active">
 							<td>
-									<a href="{{path('pro_stage_afficherStagesParEntreprises',{id:entrepriseCourante.id})}}"><center>{{entrepriseCourante.nom}}</center></a>
+									<a href="{{path('pro_stage_afficherStagesParEntreprises',{nom:entrepriseCourante.nom})}}"><center>{{entrepriseCourante.nom}}</center></a>
 							</td>
 						</tr>
 						{% endfor %}
