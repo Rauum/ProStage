@@ -11,6 +11,9 @@ use App\Entity\Formation;
 use App\Repository\StageRepository;
 use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 class ProStageController extends AbstractController
 {
@@ -65,19 +68,34 @@ class ProStageController extends AbstractController
 
   }
 
-  public function ajouterEntreprise()
+  public function ajouterEntreprise(Request $request, EntityManagerInterface $manager)
   {
     //Creation d'une entreprise vierge sui sera remplie par le formulaire
     $entreprise = new Entreprise();
 
     // Création du formulaire permettant de saisir une entreprise
-        $formulaireEntreprise= $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('adresse')
-        ->add('dommaineActivite')
-        ->add('numTel')
-        ->add('sitWeb')
-        ->getForm();
+    $formulaireEntreprise= $this->createFormBuilder($entreprise)
+    ->add('nom')
+    ->add('adresse')
+    ->add('dommaineActivite')
+    ->add('numTel')
+    ->add('sitWeb')
+    ->getForm();
+
+    /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
+    dans cette requête contient des variables nom, adresse, etc. alors la méthode handleRequest()
+    récupère les valeurs de ces variables et les affecte à l'objet $entreprise*/
+    $formulaireEntreprise->handleRequest($request);
+
+    if ($formulaireEntreprise->isSubmitted() )
+         {
+            // Enregistrer la ressource en base de donnéelse
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            // Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('pro_stage_acceuil');
+         }
 
     //Afficher la page présentant le formulaire d'ajout d'une entreprise
     return $this->render('pro_stage/ajouterEntreprise.html.twig', ['vueFormulaire' => $formulaireEntreprise->createView()]);

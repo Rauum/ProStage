@@ -6,14 +6,26 @@
 
 {% endblock %}
 
-{% block tableau %}
-
-{% endblock %}
-
 {% block text %}
-{{form(vueFormulaire)}}
-{% endblock %}
+<center>Formulaire permettant d'ajouter une nouvelle entreprise</center>
 
+{{form_start(vueFormulaire)}}
+
+{{form_row(vueFormulaire.nom, {'attr':{'placeholder':"Nom de l'entreprise..."}})}}
+
+{{form_row(vueFormulaire.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}})}}
+
+{{form_row(vueFormulaire.dommaineActivite, {'attr':{'placeholder':"Dommaine d'activité de l'entreprise..."}})}}
+
+{{form_row(vueFormulaire.numTel, {'attr':{'placeholder':"Numéro de téléphone de l'entreprise..."}})}}
+
+{{form_row(vueFormulaire.sitWeb, {'attr':{'placeholder':"Url du site Web de l'entreprise..."}})}}
+
+<br><button type="submit" class="btn btn-secondary btn-lg btn-block">Enregistrer</button>
+
+{{form_end(vueFormulaire)}}
+
+{% endblock %}
 
 {% block boutons %}
 
