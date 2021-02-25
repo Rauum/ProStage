@@ -21,3 +21,7 @@ pro_stage_afficherStagesParEntreprises:
 pro_stage_afficherStagesParFormations:
     path: /pro/stage/afficherStagesParFormations/{intitule}
     controller: App\Controller\ProStageController::afficherStagesParFormations
+
+pro_stage_ajouterEntreprise:
+    path: /pro/stage/ajouterEntreprise
+    controller: App\Controller\ProStageController::ajouterEntreprise
