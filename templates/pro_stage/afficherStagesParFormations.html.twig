@@ -1,17 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block titrePage %}
-    Filtre par fomation
-{% endblock %}
 
 		{% block tableau %}
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-hover table-bordered">
+				<table class="table table-hover table-bordered border-dark">
 					<thead>
 						<tr>
 							<th>
-								<center>Stages</center>
+								<center>Stages dedandant la formation : {{intitule}}</center>
 							</th>
 						</tr>
 					</thead>
@@ -27,18 +24,6 @@
 						{% endfor %}
 					</tbody>
 				</table>
-			</div>
-		</div>
-		{% endblock %}
-
-		{% block boutons %}
-		<div class="row">
-			<div class="col-md-6">
-				<a href="{{path('pro_stage_formations')}}">
-					<button type="button" class="btn btn-secondary btn-lg btn-block">
-						Retour
-					</button>
-				</a>
 			</div>
 		</div>
 		{% endblock %}

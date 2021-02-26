@@ -1,17 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block titrePage %}
-    Filtre par formations
-{% endblock %}
+
 
 		{% block tableau %}
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-hover table-bordered">
+				<table class="table table-hover table-bordered border-dark">
 					<thead>
 						<tr>
 							<th>
 								<center>Formations</center>
+							</th>
+              <th>
+								<center>Niveau d'étude demandé</center>
+							</th>
+              <th>
+								<center>Ville</center>
 							</th>
 						</tr>
 					</thead>
@@ -21,22 +25,16 @@
 							<td>
 								<a href="{{path('pro_stage_afficherStagesParFormations',{intitule:formationCourante.intitule})}}"><center>{{formationCourante.intitule}}</center></a>
 							</td>
+              <td>
+								<center>{{formationCourante.niveau}}</center>
+							</td>
+              <td>
+								<center>{{formationCourante.ville}}</center>
+							</td>
 						</tr>
 					</tbody>
 					{% endfor %}
 				</table>
-			</div>
-		</div>
-		{% endblock %}
-
-		{% block boutons %}
-		<div class="row">
-			<div class="col-md-6">
-				<a href="{{path('pro_stage_acceuil')}}">
-					<button type="button" class="btn btn-secondary btn-lg btn-block">
-						Retour
-					</button>
-				</a>
 			</div>
 		</div>
 		{% endblock %}

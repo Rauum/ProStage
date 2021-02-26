@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block titrePage %}{{stage.intitule}}{% endblock %}
-
 		{% block text %}
 		<div class="col-md-12">
 			<h3 class="text-center text-info">
@@ -29,18 +27,6 @@
 							{{stage.description}}
 					</p>
 				</div>
-			</div>
-		</div>
-		{% endblock %}
-
-		{% block boutons %}
-		<div class="row">
-			<div class="col-md-6">
-				<a href="{{path('pro_stage_acceuil')}}">
-					<button type="button" class="btn btn-secondary btn-lg btn-block">
-						Retour
-					</button>
-				</a>
 			</div>
 		</div>
 		{% endblock %}

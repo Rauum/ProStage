@@ -1,17 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block titrePage %}
-    Filtre par entreprises
-{% endblock %}
+
 
 		{% block tableau %}
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-hover table-bordered">
+				<table class="table table-hover table-bordered border-dark">
 					<thead>
 						<tr>
 							<th>
 								<center>Entreprise</center>
+							</th>
+              <th>
+								<center>Adresse</center>
+							</th>
+              <th>
+								<center>Dommaine d'activité</center>
+							</th>
+              <th>
+								<center>Numéro de téléphone</center>
+							</th>
+              <th>
+								<center>Site web</center>
+							</th>
+              <th>
+								<center>Modifier</center>
 							</th>
 						</tr>
 					</thead>
@@ -21,22 +34,25 @@
 							<td>
 									<a href="{{path('pro_stage_afficherStagesParEntreprises',{nom:entrepriseCourante.nom})}}"><center>{{entrepriseCourante.nom}}</center></a>
 							</td>
+              <td>
+									<center>{{entrepriseCourante.adresse}}</center>
+							</td>
+              <td>
+									<center>{{entrepriseCourante.dommaineActivite}}</center>
+							</td>
+              <td>
+									<center>{{entrepriseCourante.numTel}}</center>
+							</td>
+              <td>
+									<center>{{entrepriseCourante.sitWeb}}</center>
+							</td>
+              <td>
+									<a href="{{path('pro_stage_modifierEntreprise',{id:entrepriseCourante.id})}}"><center>Modifier</center></a>
+							</td>
 						</tr>
 						{% endfor %}
 					</tbody>
 				</table>
-			</div>
-		</div>
-		{% endblock %}
-
-		{% block boutons %}
-		<div class="row">
-			<div class="col-md-6">
-				<a href="{{path('pro_stage_acceuil')}}">
-					<button type="button" class="btn btn-secondary btn-lg btn-block">
-						Retour
-					</button>
-				</a>
 			</div>
 		</div>
 		{% endblock %}
