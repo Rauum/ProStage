@@ -13,6 +13,7 @@ use App\Repository\FormationRepository;
 use App\Repository\EntrepriseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Form\EntrepriseType;
 
 
 class ProStageController extends AbstractController
@@ -74,20 +75,14 @@ class ProStageController extends AbstractController
     $entreprise = new Entreprise();
 
     // Création du formulaire permettant de saisir une entreprise
-    $formulaireEntreprise= $this->createFormBuilder($entreprise)
-    ->add('nom')
-    ->add('adresse')
-    ->add('dommaineActivite')
-    ->add('numTel')
-    ->add('sitWeb')
-    ->getForm();
+    $formulaireEntreprise= $this->createForm(EntrepriseType::class, $entreprise);
 
     /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
     dans cette requête contient des variables nom, adresse, etc. alors la méthode handleRequest()
     récupère les valeurs de ces variables et les affecte à l'objet $entreprise*/
     $formulaireEntreprise->handleRequest($request);
 
-    if ($formulaireEntreprise->isSubmitted() )
+    if ($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid())
          {
             // Enregistrer la ressource en base de donnéelse
             $manager->persist($entreprise);
@@ -104,14 +99,8 @@ class ProStageController extends AbstractController
 
   public function modifierEntreprise(Request $request, EntityManagerInterface $manager, Entreprise $entreprise)
   {
-    // Création du formulaire permettant de saisir une entreprise
-    $formulaireEntreprise= $this->createFormBuilder($entreprise)
-    ->add('nom')
-    ->add('adresse')
-    ->add('dommaineActivite')
-    ->add('numTel')
-    ->add('sitWeb')
-    ->getForm();
+    // Création du formulaire permettant de modifier une entreprise
+    $formulaireEntreprise= $this->createForm(EntrepriseType::class, $entreprise);
 
     /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
     dans cette requête contient des variables nom, adresse, etc. alors la méthode handleRequest()
