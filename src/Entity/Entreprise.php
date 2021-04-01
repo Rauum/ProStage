@@ -35,7 +35,7 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank
-     * @Assert\Regex("[1-9]* #"), message = "Le numéro de rue n'est pas correct"
+     * @Assert\Regex("# [1-9]* #"), message = "Le numéro de rue n'est pas correct"
      * @Assert\Regex("# allée|rue|avenue|impasse #")
       * @Assert\Regex("# [0-9]{5} #")
      */

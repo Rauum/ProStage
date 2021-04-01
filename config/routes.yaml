@@ -26,7 +26,10 @@ pro_stage_ajouterEntreprise:
     path: /pro/stage/ajouterEntreprise
     controller: App\Controller\ProStageController::ajouterEntreprise
 
-
 pro_stage_modifierEntreprise:
     path: /pro/stage/modifierEntreprise/{id}
     controller: App\Controller\ProStageController::modifierEntreprise
+
+pro_stage_ajouterStage:
+    path: /pro/stage/ajouterStage
+    controller: App\Controller\ProStageController::ajouterStage

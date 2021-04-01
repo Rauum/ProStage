@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block text %}
+<center>Formulaire permettant d'ajouter un nouveaux stage</center>
+{{form_start(vueFormulaire)}}
+
+{{form_row(vueFormulaire.intitule, {'attr':{'placeholder':"Intutule du stage..."}})}}
+
+{{form_row(vueFormulaire.formation, {'label':"Formation/Domaine du stage"})}}
+
+{{form_row(vueFormulaire.description, {'attr':{'placeholder':"Description du stage..."}})}}
+
+{{form_row(vueFormulaire.dateDebut, {'attr':{'placeholder':"Date début du stage..."}})}}
+
+{{form_row(vueFormulaire.duree, {'attr':{'placeholder':"Duree du stage..."}})}}
+
+{{form_row(vueFormulaire.competencesRequises, {'attr':{'placeholder':"Compétences requises pour le stage..."}})}}
+
+{{form_row(vueFormulaire.experiencesRequises, {'attr':{'placeholder':"Experiences requises pour le stage..."}})}}
+
+{{form_row(vueFormulaire.email, {'attr':{'placeholder':"Email du stage..."}})}}
+
+{{form_row(vueFormulaire.entreprise, {'label':"Entreprise du stage"})}}
+
+<br><button type="submit" class="btn btn-secondary btn-lg btn-block">Enregistrer</button>
+
+
+
+{{form_end(vueFormulaire)}}
+
+{% endblock %}
