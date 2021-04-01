@@ -55,17 +55,37 @@
             <a class="nav-link" aria-current="page" href="{{path('pro_stage_acceuil')}}">Acceuil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{path('pro_stage_formations')}}">Fomations</a>
+            <a class="nav-link" aria-current="page" href="{{path('formation_index')}}">Fomations</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{path('pro_stage_entreprises')}}">Entreprises</a>
           </li>
+
+          {% if is_granted('ROLE_ADMIN') %}
           <li class="nav-item">
             <a class="nav-link" href="{{path('pro_stage_ajouterEntreprise')}}">Ajouter une entreprise</a>
           </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_ADMIN') %}
           <li class="nav-item">
             <a class="nav-link" href="{{path('pro_stage_ajouterStage')}}">Ajouter un stage</a>
           </li>
+          {% endif %}
+
+          {% if is_granted('ROLE_USER') %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('app_logout')}}">
+              {{ app.user.prenom }}{{ app.user.nom }}
+              <i class="icon-user"></i>Déconnexion</a></li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('app_login')}}"><i class="icon-user"></i>Connexion</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('app_inscription')}}"><i class="icon-user"></i>S'inscrire</a></li>
+              {% endif %}
+
+
         </ul>
         <!-- Left links -->
           </button>

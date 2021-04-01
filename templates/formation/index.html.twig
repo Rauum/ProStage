@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block tableau %}
+    <h1>Tableau des formations</h1>
+    <div class="row">
+			<div class="col-md-12">
+    <table class="table table-hover table-bordered border-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Intitule</th>
+                <th>Niveau</th>
+                <th>Ville</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr class="table-active">
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.intitule }}</td>
+                <td>{{ formation.niveau }}</td>
+                <td>{{ formation.ville }}</td>
+                <td>
+                    <a href="{{ path('formation_show', {'id': formation.id}) }}">Consulter</a>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune formation</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('formation_new') }}">Creer une nouvelle formation</a>
+{% endblock %}

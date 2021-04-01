@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+{% block text %}
+<h1>S'identifier</h1>
+{{form_start(vueFormulaire)}}
+
+{{form_row(vueFormulaire.nom, {'attr':{'placeholder':"Votre prénom..."}})}}
+
+{{form_row(vueFormulaire.prenom, {'attr':{'placeholder':"Votre nom..."}})}}
+
+{{form_row(vueFormulaire.email, {'attr':{'placeholder':"Votre email..."}})}}
+
+{{form_row(vueFormulaire.password, {'attr':{'placeholder':"Mot de passe..."}})}}
+
+<br><button type="submit" class="btn btn-secondary btn-lg btn-block">S'inscrire</button>
+
+{{form_end(vueFormulaire)}}
+{% endblock %}
