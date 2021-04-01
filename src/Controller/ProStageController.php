@@ -17,6 +17,7 @@ use App\Form\EntrepriseType;
 use App\Form\StageType;
 
 
+
 class ProStageController extends AbstractController
 {
   public function index(StageRepository $repositoryStage): Response
